@@ -1,1 +1,31 @@
-dsa
+bool almostIncreasingSequence(int[] sequence) {
+    for(int i = 0;i<sequence.Length-1;i++)
+        {
+          if(sequence[i+1]==sequence[i])
+          {
+             List<int> lst = sequence.ToList();
+             lst.RemoveAt(i);
+             return(istrue(lst));
+          }
+          else if (sequence[i+1]<sequence[i])
+          {
+             List<int> lst = sequence.ToList();
+             lst.RemoveAt(i);
+            
+             if(istrue(lst)) return true;
+             List<int> lst1 = sequence.ToList();
+             lst1.RemoveAt(i+1);
+             if(istrue(lst1)) return true;
+          }
+        }
+return false;
+
+}
+bool istrue(List<int> list)
+{  
+    for(int i = 0;i<list.Count-1;i++)
+    {
+      if(list[i+1]<=list[i]) return false;
+    }
+return true;
+}
