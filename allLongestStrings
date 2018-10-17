@@ -1,0 +1,10 @@
+My:
+string[] allLongestStrings(string[] inputArray) {
+int mx = inputArray.Aggregate("",(max,current)=>max.Length >current.Length ? max : current).Length;
+ return inputArray.Where(x=>x.Length == mx).ToList().ToArray();
+}
+Him:
+object allLongestStrings(string[] inputArray) {
+    int len = inputArray.Max(_ => _.Length);
+    return inputArray.Where(_ => _.Length == len);
+}
