@@ -1,0 +1,27 @@
+string reverseParentheses(string s) {
+    string pattern = @"\((\w+\s*)*\)";
+    MatchCollection mCol = Regex.Matches(s,pattern);
+    if(mCol.Count()!=0)
+    {
+        foreach(Match m in mCol)
+        {
+                string child = m.ToString();
+                child = child.Remove(child.Length-1,1);
+                child = child.Remove(0,1);
+                Char[] arr = child.ToArray();
+                Array.Reverse(arr);
+                child = new string(arr);
+                StringBuilder builder = new StringBuilder(s);
+                builder.Replace(m.Value,child);
+                s = builder.ToString();
+        
+        }
+        return reverseParentheses(s);
+    }
+    else
+    {
+        return s;
+    }
+    /*     Match m = Regex.Match(s, @"\([^(]*?\)");
+    return s = m.Success ? reverseParentheses(s.Replace(m.Value, new string(Regex.Replace(m.Value, "[(|)]", "").ToCharArray().Reverse().ToArray()))) : s; */
+}
