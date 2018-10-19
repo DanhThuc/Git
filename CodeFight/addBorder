@@ -1,0 +1,13 @@
+string[] addBorder(string[] picture) {
+List<string> ls = picture.Select(x=>"*"+x+"*").ToList();
+string str = new String('*',picture[0].Count()+2);
+ls.Add(str);
+ls.Insert(0,str);
+return ls.ToArray();
+}
+/*
+   var stars = new string[] { new string('*', picture[0].Length + 2) };
+    return stars.Concat(picture.Select(s => "*" + s + "*"))
+        .Concat(stars)
+        .ToArray();
+*/
