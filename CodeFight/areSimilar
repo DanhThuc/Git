@@ -1,0 +1,8 @@
+bool areSimilar(int[] a, int[] b) {
+    List<int> l = a.Where((x,i)=> a[i]!=b[i]).ToList();
+    return l.Count()==0 || l.Count()==2 && a.OrderBy(_=>_).SequenceEqual(b.OrderBy(_=>_));
+
+// him I Thing way of him is greater me because in my way have orderby it can be slowly... than him
+//      var diffs = A.Select((_, i) => i).Where(_ => A[_] != B[_]).ToArray();
+//    return diffs.Length == 0 || diffs.Length == 2 && A[diffs[0]] == B[diffs[1]] && B[diffs[0]]          A[diffs[1]];
+}
