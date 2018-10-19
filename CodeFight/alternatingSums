@@ -1,0 +1,5 @@
+int[] alternatingSums(int[] a) {
+int[] arr = new int[2];
+a.Select((x,i)=>arr[i%2]+=x).Count();
+return arr;
+}
