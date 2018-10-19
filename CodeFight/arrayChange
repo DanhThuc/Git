@@ -1,0 +1,15 @@
+int arrayChange(int[] inputArray) {
+
+int t=0;
+for(int i=1;i<inputArray.Length;i++)
+{
+    while(inputArray[i]<=inputArray[i-1])
+    {
+        inputArray[i]++;
+        t++;
+    }   
+}
+ return t;
+}
+/*int last = inputArray[0] - 1;
+    return inputArray.Sum(_ => (last = Math.Max(last + 1, _)) - _);*/
