@@ -1,0 +1,4 @@
+string alphabeticShift(string inputString) {
+return string.Concat(inputString.Select(_=>_=='z'?'a':(char)(_+1)));
+/*.Select(x=>x.ToString()).Aggregate((i, j) => i + j).ToString();*/
+}
