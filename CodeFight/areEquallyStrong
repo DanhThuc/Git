@@ -1,0 +1,4 @@
+bool areEquallyStrong(int a, int b, int c, int d) {
+return a+b==c+d && (a ==c || a == d); 
+}
+//no cmt i thing my is great
