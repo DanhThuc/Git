@@ -1,0 +1,11 @@
+bool isIPv4Address(string ip) {
+string[] words = ip.Split('.');
+if(words.Length!=4) return false;
+		foreach(string x in words)
+		{
+			int kq=-1;
+			bool b = Int32.TryParse(x, out kq);
+			if(b==false||kq<0 ||kq>255) return false;
+		}	
+return true;
+}
