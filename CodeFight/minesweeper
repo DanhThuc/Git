@@ -1,0 +1,36 @@
+int[][] minesweeper(bool[][] matrix) {
+
+int[][] arr = matrix.Select(x=>x.Select(_=>_==true?1:0).ToArray()).ToArray();
+int[][] num = matrix.Select(x=>x.Select(_=>0).ToArray()).ToArray();
+
+for(int i=0;i<matrix.Length;i++)
+{
+    for(int j=0;j<matrix[0].Length;j++)
+    {
+        if(arr[i][j]==1)
+        {
+            if(i<matrix.Length-1 && j<matrix[0].Length-1) num[i+1][j+1]+=1;
+            if(i<matrix.Length-1) num[i+1][j]+=1;
+            if(i<matrix.Length-1 && j>0) num[i+1][j-1]+=1;
+            if(j<matrix[0].Length-1) num[i][j+1]+=1;
+            if(j>0) num[i][j-1]+=1;
+            if(i>0 && j<matrix[0].Length-1) num[i-1][j+1]+=1;
+            if(i>0) num[i-1][j]+=1;
+            if(i>0 && j>0) num[i-1][j-1]+=1;
+        }
+    }
+}
+return num;
+/*return matrix
+        .Select((_, i) => 
+                _.Select((c, j) => 
+                         matrix.Skip(i-1)
+                         .Take(i < 1 || i == matrix.Length - 1 ? 2 : 3)
+                         .SelectMany(r => 
+                                     r.Skip(j-1)
+                                     .Take(j < 1 || j == _.Length - 1 ? 2 : 3))
+                         .Count(m => m == true) - (matrix[i][j] ? 1 : 0))
+                .ToArray())
+        .ToArray();
+*/
+}
