@@ -1,0 +1,12 @@
+int avoidObstacles(int[] arr) {
+    for(int i=2;;i++)
+    {
+        if(arr.Where(x=>x%i!=0).Count()==arr.Length) return i;
+    }
+//him code lead
+// int n = 2;
+/*    while (inputArray.Any(_ => _ % n < 1)) {
+        n++;
+    }
+    return n;*/
+}
