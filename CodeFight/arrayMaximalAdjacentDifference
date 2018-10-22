@@ -1,0 +1,6 @@
+int arrayMaximalAdjacentDifference(int[] inputArray) {
+return inputArray.Skip(1).Select((x,i)=>Math.Abs(x-inputArray[i])).Max();
+// him... the man with last ...
+//int last = inputArray[0];
+  //  return inputArray.Max(_ => Math.Abs(last - (last = _)));
+}
