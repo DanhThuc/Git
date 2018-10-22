@@ -1,0 +1,9 @@
+int depositProfit(double deposit, double rate, double threshold) {
+int i=0;
+while(deposit<threshold)
+{
+    deposit+=deposit*rate/100;
+    i++;
+}
+return i;
+}
