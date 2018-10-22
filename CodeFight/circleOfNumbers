@@ -1,0 +1,4 @@
+int circleOfNumbers(int n, int fn) {
+return fn<n/2?fn+n/2:fn+n/2-n;
+/*    return ((n/2)+f)%n;*/
+}
