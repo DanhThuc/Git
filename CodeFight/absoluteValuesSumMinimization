@@ -1,0 +1,11 @@
+int absoluteValuesSumMinimization(int[] a) {
+return a.Where((x,i)=>a
+                        .Select(y=>
+                        Math.Abs(x-y))
+                        .Sum()==a
+                        .Select(t=>a
+                        .Select(y=>Math.Abs(y-t))
+                        .Sum())
+                        .Min())
+                        .First();
+}
