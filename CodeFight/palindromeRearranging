@@ -1,0 +1,31 @@
+bool palindromeRearranging(string ip) {
+// this is after i see answer and it great than me and simple than my answer!!
+// return ip.GroupBy(x=>x).Where(x=>x.Count()%2==1).Count()<=1 ;
+// this is mine too                                 
+return ip.GroupBy(x => x)
+            .ToDictionary(k => k.Key, v => v.Count())
+            .Select(x=>x.Value).ToList()
+            .Where(x=>x%2==1)
+            .Count()<=1;
+//this code is mine
+/*Dictionary<char, int> MyHash = new Dictionary<char, int>();
+List<char> lstStr = ip.Distinct().ToList();
+
+    foreach(var item in lstStr)
+    {
+        int va =0;
+        for(int i =0;i<ip.Length;i++)
+        {
+             if(item == ip[i]) va ++;
+        }
+        MyHash.Add(item,va);
+       
+    }
+int t=0;
+foreach(var item in MyHash)
+{
+    if(item.Value%2==1) t++;
+}
+
+return t<=1;*/
+}
