@@ -1,0 +1,33 @@
+int[][] boxBlur(int[][] image) {
+int[][] arrP = new int[image.Length-2][];
+
+for(int i=0;i<arrP.Length;i++)
+{
+    arrP[i] = new int[image[0].Length-2];
+}
+
+for(int i=0;i<arrP.Length;i++)
+{
+    for(int j=0;j<image[0].Length-2;j++)
+    {
+        int va =0;
+        for(int x =i;x<i+3;x++)
+        {
+            for(int y = j;y<j+3;y++)
+            {
+                va+=image[x][y];
+            }
+        }
+        arrP[i][j]=va/9;
+    }
+}
+return arrP;
+/*    return image.Skip(2)
+        .Select((_, i) => 
+                _.Skip(2).Select((c, j) => 
+                                 (int)image.Skip(i).Take(3).SelectMany(r => r.Skip(j).Take(3)).Average()
+                                )
+                .ToArray()
+               )
+        .ToArray(); */
+}
