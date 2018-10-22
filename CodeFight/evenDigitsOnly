@@ -1,0 +1,4 @@
+bool evenDigitsOnly(int n) {
+return n.ToString().ToArray().Where(x=>int.Parse(x.ToString())%2==1).Count()==0;
+//shouki return n.ToString().All(_ => _ % 2 < 1);
+}
