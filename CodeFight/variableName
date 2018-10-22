@@ -1,0 +1,4 @@
+bool variableName(string name) {
+return name.ToArray().All(_=>(Char.IsDigit(_)||_=='_'||Char.IsLetter(_))) && !Char.IsDigit(name[0]);
+// can change by IsDigitorLetter(_);
+}
