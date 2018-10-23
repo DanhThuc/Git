@@ -1,0 +1,43 @@
+bool stringsRearrangement(string[] inputArray) {
+List<string> T = new List<string>();
+T.Add(inputArray[0]);
+List<string> P = inputArray.Skip(1).ToList();
+List<string> lst = new List<string>();
+while(T.Count()!=inputArray.Length)
+{
+       bool fg =false;
+       foreach(var a in P) //phai
+       {
+           for(int i=0;i<T.Count();i++) //trai
+           {
+               if(DiffOne(a,T[0]))
+               {
+                   T.Insert(0,a);
+                   P.Remove(a); fg=true;
+               }else if(DiffOne(a,T[T.Count()-1]))
+               {
+                   T.Add(a);
+                   P.Remove(a);fg=true;
+               }else
+               {
+                   for(int j=0;T.Count>1&&j<T.Count()-1;j++)
+                   {
+                       if(DiffOne(a,T[j])&&DiffOne(a,T[j+1]))
+                       {
+                           T.Insert(j+1,a); fg=true;
+                       }
+                        if(fg) break;
+                   }
+               }
+                if(fg) break;
+           }
+           if(fg) break;
+       }if(!fg) return false;
+}
+return true;
+}
+
+
+bool DiffOne(string a,string b){
+    return a.Zip(b,(l,n)=>l-n).Where(_=>_!=0).Count()==1;
+}
