@@ -1,0 +1,4 @@
+char firstDigit(string inputString) {
+return inputString.Where(x=>Char.IsDigit(x)).FirstOrDefault();
+}
+// return inputString.First(char.IsDigit);
