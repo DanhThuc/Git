@@ -1,0 +1,4 @@
+int arrayMaxConsecutiveSum(int[] inputArray, int k) {
+int sum =inputArray.Take(k).Sum();
+return Math.Max(inputArray.Take(k).Sum(),inputArray.Skip(k).Select((x,i)=>sum=sum-inputArray[i]+inputArray[i+k]).Max());
+}
