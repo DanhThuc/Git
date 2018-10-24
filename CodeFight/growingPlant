@@ -1,0 +1,12 @@
+int growingPlant(int uS, int dS, int height) {
+int sum = 0;
+int d =0;
+while(sum<height)
+{
+    sum+=uS;
+    d++;
+    if(sum>=height) return d;
+    sum-=dS;
+}
+return d;
+}
