@@ -1,0 +1,27 @@
+int digitDegree(int n) {
+List<int> lst = n.ToString().ToArray().Select(x=>int.Parse(x.ToString())).ToList();
+int time =1;
+if(n<10) return 0;
+    while(lst.Sum()>9)
+    {
+        n=lst.Sum();
+        lst=n.ToString().ToArray().Select(x=>int.Parse(x.ToString())).ToList();
+        time++;
+    }
+return time;
+}
+int digitDegree(int n) {
+    int ct=0;
+    while (n>9)
+    {
+        int ttl=0;
+        while (n>0)
+        {
+            ttl+=n%10;
+            n/=10;
+        }
+        n=ttl;
+        ct++;
+    }
+    return ct;
+}
