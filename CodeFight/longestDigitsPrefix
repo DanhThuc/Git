@@ -1,0 +1,17 @@
+string longestDigitsPrefix(string inputString) {
+string s =""; 
+for(int i=0;i<inputString.Length;i++)
+{
+    if(Char.IsDigit(inputString[i])) s+=inputString[i].ToString();
+    else return s;
+}
+return s;
+}
+
+string longestDigitsPrefix(string inputString) {
+return new string(inputString.TakeWhile(char.IsDigit).ToArray());
+}
+
+string longestDigitsPrefix(string inputString) {
+    return Regex.Match(inputString, @"^\d+").Value;
+}
