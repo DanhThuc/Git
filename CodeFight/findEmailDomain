@@ -1,3 +1,6 @@
 string findEmailDomain(string address) {
 return address.Remove(0,address.LastIndexOf('@')+1);
 }
+string findEmailDomain(string address) {
+    return address.Split('@').Last();
+}
