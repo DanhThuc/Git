@@ -1,0 +1,20 @@
+bool isBeautifulString(string inputString) {
+Dictionary<char, int> Dic = new Dictionary<char, int>();
+    for(char i ='a';i<='z';i++)
+    {
+        int n =0;
+        foreach(char x in inputString)
+        {
+            if(x==i) n++;    
+        }
+        Dic.Add(i,n);
+    }
+List<int> lsInt = Dic.Select(x=>x.Value).ToList();
+return lsInt.Skip(1).Where((x,i)=>x>lsInt[i]).Count()==0;
+}
+bool isBeautifulString(string inputString) {
+var alphabet = "abcdefghijklmnopqrstuvwxyz";
+var occurences = alphabet.Select(x => inputString.Count(c => c == x));
+var orderedOccurences = occurences.OrderByDescending(x => x);
+return Enumerable.SequenceEqual(occurences, orderedOccurences);
+}
