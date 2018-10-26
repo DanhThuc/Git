@@ -1,0 +1,19 @@
+int chessKnight(string cell) {
+int n =0;
+if((char)(cell[0]-1)>='a' && int.Parse(cell[1].ToString())-2>=1) n++;
+if((char)(cell[0]-1)>='a' && int.Parse(cell[1].ToString())+2<=8) n++;
+if((char)(cell[0]+1)<='h' && int.Parse(cell[1].ToString())-2>=1) n++;
+if((char)(cell[0]+1)<='h' && int.Parse(cell[1].ToString())+2<=8) n++;
+if((char)(cell[0]-2)>='a' && int.Parse(cell[1].ToString())-1>=1) n++;
+if((char)(cell[0]-2)>='a' && int.Parse(cell[1].ToString())+1<=8) n++;
+if((char)(cell[0]+2)<='h' && int.Parse(cell[1].ToString())-1>=1) n++;
+if((char)(cell[0]+2)<='h' && int.Parse(cell[1].ToString())+1<=8) n++;
+
+return n;
+}
+int chessKnight(string cell) {
+    var results = new int[]{2, 3, 4, 6, 8};
+    int dist1 = Math.Min(Math.Min(cell[0] - 'a', 'h' - cell[0]), 2);
+    int dist2 = Math.Min(Math.Min(cell[1] - '1', '8' - cell[1]), 2);
+    return results[dist1 + dist2];
+}
