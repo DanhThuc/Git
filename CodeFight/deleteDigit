@@ -1,0 +1,4 @@
+int deleteDigit(int n) {
+string s =n.ToString();
+return s.ToArray().Select((x,i)=>int.Parse(s.Remove(i,1))).Max();
+}
