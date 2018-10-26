@@ -1,0 +1,20 @@
+string buildPalindrome(string st) {
+if(ispali(st)) return st;
+
+
+string nS = st+st[0].ToString();
+if(ispali(nS)) return nS;
+
+for(int i=1;i<st.Length;i++)
+{
+    nS = nS.Insert(st.Length,st[i].ToString());
+        if(ispali(nS)) return nS;
+}
+return nS;
+}
+
+
+bool ispali(string s)
+{   
+    return new string(s.Reverse().ToArray()) == s;
+}
