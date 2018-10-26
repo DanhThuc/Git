@@ -1,0 +1,3 @@
+int sumUpNumbers(string inputString) {
+return Regex.Matches(inputString,@"\d+").Cast<Match>().Select(x=>int.Parse(x.Value)).ToArray().Sum();
+}
