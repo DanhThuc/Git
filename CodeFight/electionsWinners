@@ -1,0 +1,30 @@
+int electionsWinners(int[] votes, int k) {
+/*
+if(k==0)
+{
+int n=0;
+    for(int i=0;i<votes.Length;i++)
+    {
+        if(votes[i]==votes.Max()) n++;   
+    }
+  return n>1 ?0:  1;
+}
+int t=0;
+int max = votes.Max();
+for(int i=0;i<votes.Length;i++)
+{
+    if(votes[i]+k>max) t++;   
+}
+return t;*/
+int max = votes.Max();
+int sm = votes.Where(x=>x==max).Count(); // munber of maxvalue
+return k==0?sm>1?0:1:votes.Select(x=>x+k).Where(x=>x>max).Count();
+}
+int electionsWinners(int[] v, int k)
+{
+    int m = v.Max();
+    if(v.Count(x => x == m) == 1 && k == 0)
+        return 1;
+    else
+    return v.Count(x => x + k > m);
+}
