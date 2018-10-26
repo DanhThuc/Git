@@ -1,0 +1,10 @@
+bool isMAC48Address(string inputString) {
+ Regex rgx = new Regex(@"^((\d|[A-F])(\d|[A-F]))(-(\d|[A-F])(\d|[A-F])){5}$");
+return rgx.IsMatch(inputString);
+}
+bool isMAC48Address(string inputString)
+{
+    Regex r = new Regex(@"([0-9A-F]{2}-){5}[0-9A-F]{2}$");
+    
+    return r.Match(inputString).Success;
+}
