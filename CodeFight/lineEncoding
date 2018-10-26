@@ -1,0 +1,24 @@
+string lineEncoding(string s) {
+s+=".";
+List<string> lst = new List<string>();
+string st ="";
+    for(int i=0;i<s.Count()-1;i++)
+    {   
+        
+        if(s[i]==s[i+1]) st+=s[i];
+        else
+        {
+            st+=s[i];
+            lst.Add(st);
+            st="";
+        } 
+    }
+st="";
+for(int i=0;i<lst.Count;i++)
+{
+    int n = lst[i].Length;
+    if(n!=1) st+= n + lst[i][0].ToString();
+    else st+= lst[i][0].ToString();
+}
+return st;
+}
