@@ -1,0 +1,11 @@
+string longestWord(string text) {
+Regex reg = new Regex(@"[a-zA-Z]+");
+MatchCollection matches = reg.Matches(text);
+string[]str = matches.Cast<Match>().Select(m => m.Value).ToArray();
+int max = str.Max(x=>x.Length);
+return str.Where(x=>x.Length==max).ToList()[0];
+}
+string longestWord(string text) 
+{
+    return text.Split(text.Where(x => !Char.IsLetter(x)).ToArray()).OrderBy(x => x.Length).Last();
+}
