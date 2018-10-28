@@ -1,0 +1,44 @@
+int digitsProduct(int product) {
+if(product==0){return 10;}
+	if(product<10){return product;}
+	if(isNt(product)) return -1;
+		
+	int i=0;
+	int n=product;
+	string s="";
+	while(n.ToString().Length!=1)
+	  {      
+			
+			
+		bool fg = false;
+			for(i=9;i>1;i=i-1)
+			{				
+			   if(n%i==0) 
+			   {
+				  s+=i.ToString(); n/=i; Console.WriteLine(i);
+				  fg =true;
+				  break;             
+			   }
+			}
+			if(!fg) {
+				Console.WriteLine("F");
+				return -1;
+			} 
+			
+		   
+		}
+	int a = int.Parse(s+n.ToString());
+	string st= new string(a.ToString().Reverse().ToArray());
+	return int.Parse(st);
+}
+
+
+
+ bool isNt(int n)
+	{
+		for(int i=2;i<n;i++)
+		{
+			if(n%i==0)return false;
+		}
+	return true;
+	}
