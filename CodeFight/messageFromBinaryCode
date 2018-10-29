@@ -1,0 +1,23 @@
+string messageFromBinaryCode(string code) {
+
+
+    List<string> lst = new List<string>();
+
+
+		string s ="";
+
+		int len = code.Length/8;
+
+		for(int i=0;i<len;i++)
+		{
+			lst.Add(code.Substring(0,8));		
+			code = code.Substring(8);
+		} 
+		for(int i=0; i<lst.Count;i++)
+		{
+			int num = Convert.ToInt32(lst[i],2);
+			s+= Convert.ToChar(num);
+		}
+
+ return s;
+}
