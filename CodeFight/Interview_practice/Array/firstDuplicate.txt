@@ -1,0 +1,18 @@
+int firstDuplicate(int[] arr) {
+List<int> lst = arr.GroupBy(e=>e).Where(e=>e.Count()>1).Select(x=>x.FirstOrDefault()).ToList();
+if(lst.Count()==0) return -1;
+if(lst.Count()==1) return lst[0];
+		int idm = arr.Length-1;
+		foreach(var i in lst)
+		{
+			int id = Array.IndexOf(arr, i);
+			int id2 = Array.IndexOf(arr,i,id+1);
+		    
+			if(id2<idm)
+			{
+				idm=id2;
+			}
+		}
+		
+return arr[idm];
+}
