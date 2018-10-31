@@ -1,0 +1,4 @@
+int secondRightmostZeroBit(int n)
+{
+  return (int)Math.Pow(2,Convert.ToString(n,2).Length-Convert.ToString(n,2).LastIndexOf('0',Convert.ToString(n,2).LastIndexOf('0')-1)-1);
+}
