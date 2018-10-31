@@ -1,0 +1,11 @@
+int lateRide(int n) {
+int[] ho = new int[]{0,0,0,0};
+int h = n/60;
+ho[1] = h<10? h : h%10;
+ho[0] = h<10? 0 : h/10;
+int s = n-(n/60)*60;
+Console.WriteLine(s);
+ho[2] = s<10? 0 : s/10;
+ho[3] = s<10? s : s%10;
+return ho.Sum();
+}
