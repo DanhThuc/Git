@@ -1,0 +1,12 @@
+int rangeBitCount(int a, int b) {
+List<int> lst = new List<int>();
+while(a<=b)
+{
+    lst.Add(a);
+    a++;
+}
+return lst.Select(x=>Convert.ToInt32(Convert.ToString(x,2)
+.ToString()
+.ToArray()
+.Select(y=>Convert.ToInt32(y.ToString())).Sum())).Sum();
+}
