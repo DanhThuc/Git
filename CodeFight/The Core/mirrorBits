@@ -1,0 +1,7 @@
+int mirrorBits(int a) {
+List<char> lst = Convert.ToString(a,2).ToList();
+lst.Reverse();
+string s ="";
+lst.Select(_=>s+=_.ToString()).ToList();
+return Convert.ToInt32(s,2);
+}
