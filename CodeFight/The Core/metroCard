@@ -1,0 +1,4 @@
+int[] metroCard(int lastNumberOfDays) {
+return (lastNumberOfDays == 28 || lastNumberOfDays== 30)?new[] {31}: new[] {28,30,31} ;
+
+}
