@@ -1,0 +1,8 @@
+int arrayPacking(int[] a) {
+List<string> lst = a.Select(x=>Convert.ToString(x,2).PadLeft(8, '0')).ToList();
+lst.Reverse();
+string s ="";
+lst.Select(x=>s+=x).ToList();
+return Convert.ToInt32(s,2);
+
+}
