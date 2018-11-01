@@ -1,0 +1,17 @@
+bool isCryptSolution(string[] crypt, char[][] solution) {
+var dict = Enumerable.Range(0, solution.GetLength(0)).ToDictionary(i => solution[i][0], i => solution[i][1]);
+		List<string> lst =new List<string>();
+		for(int i=0;i<crypt.Length;i++)
+		{
+			lst.Add("");
+			foreach(var a in crypt[i])
+			{
+				lst[i]+=dict.Where(x=>x.Key==a).FirstOrDefault().Value;
+			}
+		}
+if(lst.Any(x=>Convert.ToInt64(x).ToString()!=x)) return false;
+		List<long> ls = lst.Select(x=>Convert.ToInt64(x)).ToList();
+          
+		return ls[1]+ls[0]==ls[2];
+	
+}
