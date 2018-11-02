@@ -1,0 +1,44 @@
+bool sudoku2(char[][] arr) {
+for(int i=0;i<9;i++)
+{
+    string s ="";
+    for(int j=0;j<9;j++)
+    {
+       char x = arr[i][j];
+        if(char.IsDigit(x) && !s.Contains(x.ToString())) s+=x.ToString();
+        else if(char.IsDigit(x) && s.Contains(x.ToString()))    
+        
+            return false;
+    }
+}
+for(int i=0;i<9;i++)
+{
+    string s ="";
+    for(int j=0;j<9;j++)
+    {
+       char x = arr[j][i];
+        if(char.IsDigit(x) && !s.Contains(x.ToString())) s+=x.ToString();
+        else if(char.IsDigit(x) && s.Contains(x.ToString()))  
+            return false;
+    }
+}
+
+for(int i=0;i<9;i+=3)
+{
+    for(int j=0;j<9;j+=3)
+    {
+        string s ="";
+        for(int a=i;a<i+3;a++)
+        {
+            for(int b=j;b<j+3;b++)
+            {
+                 char x = arr[a][b];
+                if(char.IsDigit(x) && !s.Contains(x.ToString())) s+=x.ToString();
+                else if (char.IsDigit(x) && s.Contains(x.ToString()))
+                    return false;
+            }
+        }
+    }
+}
+return true;
+}
