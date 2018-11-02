@@ -1,0 +1,24 @@
+int fragileRotatingBox(string[] box, string sf) {
+	string s ="";
+		s+=box[box.Length-1];
+		for(int i=box.Length-1;i>=0;i--)
+		{
+			s+= box[i][box[i].Length-1].ToString();
+		}
+		for(int i=box[0].Length-1;i>=0;i--)
+		{
+			s+=box[0][i].ToString();
+		}
+		for(int i=0;i<box.Length;i++)
+		{
+			s+=box[i][0].ToString()	;
+		}
+		Console.WriteLine(s);
+            string x =s;
+		while(s.Length<sf.Length) 
+                {
+                      s+=x;   
+                }              
+		List<int> lst = s.Zip(sf,(a,b)=>(int.Parse(a.ToString())*int.Parse(b.ToString()))).ToList();
+return lst.Sum();
+}
