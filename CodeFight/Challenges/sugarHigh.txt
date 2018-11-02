@@ -1,0 +1,30 @@
+int[] sugarHigh(int[] arr, int the) {
+		List<int> gocl = arr.ToList();
+		int sum=0;
+		List<int> lst = new List<int>();
+		Array.Sort(arr);
+		for(int i=0;i<arr.Length;i++)
+		{
+			sum+=arr[i];
+			if(sum>the) break;
+			else
+			{
+				lst.Add(arr[i]);
+			}
+		}
+		List<int> ind =new List<int> ();
+		for(int i=0;i<gocl.Count();i++)
+		{
+			foreach(var x in lst)
+			{
+				if(gocl[i]==x) 
+				{
+					ind.Add(i); 
+					lst.Remove(x);
+					break;
+				}
+			}
+		}
+	   ind.Sort();
+return ind.ToArray();
+}
