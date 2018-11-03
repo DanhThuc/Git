@@ -1,0 +1,31 @@
+int jumpingJimmy2(int[] tower, int[] power, int[] poison, int jumpHeight) {
+int i=0;
+bool fg =false;
+for(i=0;i<tower.Length-1;i++)
+{   
+    if(jumpHeight<tower[i])
+    {fg =true;
+        break;} 
+    int can =tower[i];
+    while(jumpHeight>can && i+1<tower.Length)
+    {
+        
+        can += tower[i+1];
+        if(can < jumpHeight) i++;
+        else if (can==jumpHeight)
+        {   
+            i++;
+            break;
+        }
+        else
+        {
+            break;
+        }
+    } 
+    if(power.Any(x=>x==i)) jumpHeight++;  
+    if(poison.Any(x=>x==i)) jumpHeight--;
+}
+
+return !fg?tower.Sum():tower.Where((x,z)=>z<i).Sum();
+
+}
