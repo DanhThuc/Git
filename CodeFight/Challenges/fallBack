@@ -1,0 +1,11 @@
+string fallBack(string time) {
+string[] s = time.Split(':');
+int h  = (int.Parse(s[0]) - 1) == 0 ? 12 : (int.Parse(s[0])-1);
+string p = s[1].Substring(0,2);
+
+string b  = s[1].Substring(2,2);
+
+if(b=="PM" && h == 11) b="AM";
+else if(b=="AM" && h == 11) b="PM";
+return h+":"+p+b;
+}
