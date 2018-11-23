@@ -1,0 +1,24 @@
+// Definition for singly-linked list:
+// class ListNode<T> {
+//   public T value { get; set; }
+//  public ListNode<T> next { get; set; }
+// }
+//
+ListNode<int> removeKFromList(ListNode<int> l, int k) {
+	var fade = new ListNode<int>();
+	var pre = fade;
+	var cur = l;
+	pre.next = l;
+	while(cur!=null)
+	{
+		if(cur.value == k)
+		{
+			pre.next = cur.next;
+		} 
+		else {
+        pre = cur;
+    	}
+		cur = cur.next;
+	}
+		return fade.next;
+	}	
